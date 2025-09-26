@@ -41,13 +41,20 @@ router.post('/request', auth, async (req, res) => {
       return res.status(400).json({ message: 'Purchase request already exists' });
     }
 
+    // Calculate fees: Total transaction stays within original price
+    const buyerFee = Math.floor(coupon.price * 0.05); // 5% platform fee from buyer
+    const sellerFee = Math.floor(coupon.price * 0.1); // 10% platform fee from seller
+    const totalPlatformFee = buyerFee + sellerFee; // Total platform fee (5% + 10% = 15%)
+    const buyerAmount = coupon.price; // Buyer pays original price (no additional amount)
+    const sellerEarnings = coupon.price - totalPlatformFee; // Seller gets original price - 15%
+
     const purchase = new Purchase({
       couponId,
       buyerId: req.user._id,
       sellerId: coupon.sellerId,
-      amountPaid: coupon.price,
-      platformFee: coupon.price * 0.2, // 20% platform fee
-      sellerEarnings: coupon.price * 0.8, // 80% to seller
+      amountPaid: buyerAmount, // Buyer pays original price
+      platformFee: totalPlatformFee, // Total platform fee (5% + 10% = 15%)
+      sellerEarnings: sellerEarnings, // Seller gets original price - 15%
       redemptionCode: coupon.redemptionCode,
       status: 'pending'
     });
@@ -59,9 +66,12 @@ router.post('/request', auth, async (req, res) => {
       purchase: {
         id: purchase._id,
         couponTitle: coupon.title,
+        originalPrice: coupon.price,
+        buyerFee: buyerFee,
         amountPaid: purchase.amountPaid,
-        platformFee: purchase.platformFee,
+        sellerFee: sellerFee,
         sellerEarnings: purchase.sellerEarnings,
+        totalPlatformFee: purchase.platformFee,
         status: purchase.status,
         createdAt: purchase.createdAt
       }

@@ -82,7 +82,6 @@ const seedData = async () => {
         quantity: 1,
         sellerId: createdUsers[0]._id,
         status: 'approved',
-        images: ['https://via.placeholder.com/300x200/000000/FFFFFF?text=Domino\'s']
       },
       {
         title: 'Amazon Gift Card - ₹1000',
@@ -94,7 +93,6 @@ const seedData = async () => {
         quantity: 1,
         sellerId: createdUsers[1]._id,
         status: 'approved',
-        images: ['https://via.placeholder.com/300x200/000000/FFFFFF?text=Amazon']
       },
       {
         title: 'Netflix Premium - 1 Month',
@@ -106,7 +104,6 @@ const seedData = async () => {
         quantity: 1,
         sellerId: createdUsers[2]._id,
         status: 'approved',
-        images: ['https://via.placeholder.com/300x200/000000/FFFFFF?text=Netflix']
       },
       {
         title: 'Swiggy - ₹200 Off',
@@ -118,7 +115,6 @@ const seedData = async () => {
         quantity: 1,
         sellerId: createdUsers[3]._id,
         status: 'approved',
-        images: ['https://via.placeholder.com/300x200/000000/FFFFFF?text=Swiggy']
       },
       {
         title: 'BigBasket - 30% Off',
@@ -130,7 +126,6 @@ const seedData = async () => {
         quantity: 1,
         sellerId: createdUsers[0]._id,
         status: 'approved',
-        images: ['https://via.placeholder.com/300x200/000000/FFFFFF?text=BigBasket']
       },
       {
         title: 'Zomato Gold - 2 Months',
@@ -142,7 +137,6 @@ const seedData = async () => {
         quantity: 1,
         sellerId: createdUsers[1]._id,
         status: 'approved',
-        images: ['https://via.placeholder.com/300x200/000000/FFFFFF?text=Zomato']
       },
       {
         title: 'Flipkart - ₹500 Off',
@@ -154,7 +148,6 @@ const seedData = async () => {
         quantity: 1,
         sellerId: createdUsers[2]._id,
         status: 'approved',
-        images: ['https://via.placeholder.com/300x200/000000/FFFFFF?text=Flipkart']
       },
       {
         title: 'BookMyShow - Buy 1 Get 1',
@@ -166,56 +159,7 @@ const seedData = async () => {
         quantity: 1,
         sellerId: createdUsers[3]._id,
         status: 'approved',
-        images: ['https://via.placeholder.com/300x200/000000/FFFFFF?text=BookMyShow']
       },
-      {
-        title: 'Uber - ₹100 Off',
-        description: 'Get ₹100 off on your next ride. Valid on all Uber services.',
-        category: 'Transportation',
-        redemptionCode: 'UBER100',
-        expiryDate: new Date(Date.now() + 10 * 24 * 60 * 60 * 1000), // 10 days from now
-        price: 50,
-        quantity: 1,
-        sellerId: createdUsers[0]._id,
-        status: 'pending',
-        images: ['https://via.placeholder.com/300x200/000000/FFFFFF?text=Uber']
-      },
-      {
-        title: 'Ola - ₹150 Off',
-        description: 'Get ₹150 off on your next ride. Valid on all Ola services.',
-        category: 'Transportation',
-        redemptionCode: 'OLA150',
-        expiryDate: new Date(Date.now() + 12 * 24 * 60 * 60 * 1000), // 12 days from now
-        price: 75,
-        quantity: 1,
-        sellerId: createdUsers[1]._id,
-        status: 'pending',
-        images: ['https://via.placeholder.com/300x200/000000/FFFFFF?text=Ola']
-      },
-      {
-        title: 'Myntra - 40% Off',
-        description: 'Get 40% off on fashion and lifestyle products. Valid on all brands.',
-        category: 'Shopping',
-        redemptionCode: 'MYNTRA40',
-        expiryDate: new Date(Date.now() + 28 * 24 * 60 * 60 * 1000), // 28 days from now
-        price: 300,
-        quantity: 1,
-        sellerId: createdUsers[2]._id,
-        status: 'rejected',
-        images: ['https://via.placeholder.com/300x200/000000/FFFFFF?text=Myntra']
-      },
-      {
-        title: 'Paytm - ₹50 Cashback',
-        description: 'Get ₹50 cashback on your next recharge or bill payment.',
-        category: 'Finance',
-        redemptionCode: 'PAYTM50',
-        expiryDate: new Date(Date.now() + 18 * 24 * 60 * 60 * 1000), // 18 days from now
-        price: 25,
-        quantity: 1,
-        sellerId: createdUsers[3]._id,
-        status: 'approved',
-        images: ['https://via.placeholder.com/300x200/000000/FFFFFF?text=Paytm']
-      }
     ];
 
     for (const couponData of mockCoupons) {
@@ -234,8 +178,8 @@ const seedData = async () => {
     console.log(`- 1 Admin user`);
     console.log(`- ${users.length} Regular users`);
     console.log(`- ${mockCoupons.length} Mock coupons`);
-    console.log(`- 8 Approved coupons`);
-    console.log(`- 2 Pending coupons`);
+    console.log(`- 6 Approved coupons`);
+    console.log(`- 1 Pending coupon`);
     console.log(`- 1 Rejected coupon`);
 
   } catch (error) {

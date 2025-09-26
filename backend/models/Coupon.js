@@ -45,9 +45,6 @@ const couponSchema = new mongoose.Schema({
     enum: ['pending', 'approved', 'rejected', 'sold'],
     default: 'pending'
   },
-  images: [{
-    type: String
-  }]
 }, {
   timestamps: true
 });
